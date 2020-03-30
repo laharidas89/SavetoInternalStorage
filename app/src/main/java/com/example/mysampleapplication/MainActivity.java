@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
                     mContentUri = FileProvider.getUriForFile(mContext, AUTHORITY, newFile);
                     Log.i(TAG, "contentUri: " + mContentUri);
 
-                    Intent resultIntent = new Intent();
+                    Intent resultIntent = new Intent(Intent.ACTION_SEND);
                     if (mContentUri != null) {
                         resultIntent.addFlags(
                                 Intent.FLAG_GRANT_READ_URI_PERMISSION);
@@ -98,22 +98,11 @@ public class MainActivity extends AppCompatActivity {
                         MainActivity.this.setResult(RESULT_CANCELED,
                                 resultIntent);
                     }
+                    startActivityForResult(resultIntent, 0);
                 }
             } catch (Exception e) {
                 Log.e(TAG, "getUriForFile failed: " + e.toString());
             }
         }
     }
-
-    /*public void onSendClicked(View view) {
-        Log.i(TAG, "onSendClicked");
-       *//* Intent intent = ShareCompat.IntentBuilder.from(this)
-                .setType("image/*")
-                .setStream(mContentUri)
-                .setChooserTitle("Choose app")
-                .createChooserIntent()
-                .addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-
-        mContext.startActivity(intent);*//*
-    }*/
 }
