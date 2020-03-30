@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<paths>
-    <files-path path="shared_images" name="app_imageDir" />
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <files-path name="my_images" path="/"/>
 </paths>
